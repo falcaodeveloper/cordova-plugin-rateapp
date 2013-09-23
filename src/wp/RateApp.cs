@@ -25,12 +25,20 @@ using Microsoft.Phone.Shell;
 using WPCordovaClassLib.Cordova;
 using WPCordovaClassLib.Cordova.Commands;
 using WPCordovaClassLib.Cordova.JSON;
+using Microsoft.Phone.Tasks;
 
 namespace Cordova.Extension.Commands
 {
     class RateApp : BaseCommand
     {
+        /// <summary>
+        /// Show the rate (review) dialog for the current app
+        /// </summary>
+        /// <param name="options"></param>
         public void rate(string options) {
+            MarketplaceReviewTask marketplaceReviewTask = new MarketplaceReviewTask();
+            marketplaceReviewTask.Show();
+
             DispatchCommandResult();
         }
     }
